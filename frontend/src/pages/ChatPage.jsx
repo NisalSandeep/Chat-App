@@ -1,5 +1,5 @@
 import React from "react";
-import { useChatStore } from "../store/useChatStore";
+import  useChatStore  from "../store/useChatStore";
 import { BoraderAnimatedContainer } from "../components/BoraderAnimatedContainer";
 import ProfileHeader from "../components/ProfileHeader";
 import ActiveTabSwitch from "../components/ActiveTabSwitch";
