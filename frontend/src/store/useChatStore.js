@@ -10,11 +10,11 @@ const useChatStore = create((set, get) => ({
   selectedUser: null,
   isUsersLoading: false,
   isMessagesLoading: false,
-  isSoundEnabled: localStorage.getItem("isSoundEnabled") === true,
+  isSoundEnabled: JSON.parse(localStorage.getItem("isSoundEnabled")) === true,
 
   toggleSound: () => {
-    localStorage.setItem("isSoundEnabled", !get.isSoundEnabled);
-    set({ isSoundEnabled: !get.isSoundEnabled });
+    localStorage.setItem("isSoundEnabled", !get().isSoundEnabled);
+    set({ isSoundEnabled: !get().isSoundEnabled });
   },
 
   setActiveTab: (tab) => {
@@ -31,7 +31,7 @@ const useChatStore = create((set, get) => ({
       const res = await axiosInstance.get("/messages/contacts");
       set({ allContacts: res.data });
     } catch (error) {
-      toast.error(error.messages.data.message);
+      toast.error(error.response?.data?.message || "Failed to load contacts");
     } finally {
       set({ isUsersLoading: false });
     }
@@ -40,10 +40,10 @@ const useChatStore = create((set, get) => ({
   getMyChatPartners: async () => {
     set({ isUsersLoading: true });
     try {
-      const res = await axiosInstance.get("/messages/chats");
+      const res = await axiosInstance.get("/messages/chat");
       set({ chats: res.data });
     } catch (error) {
-      toast.error(error.messages.data.message);
+      toast.error(error.response?.data?.message || "Failed to load chats");
     } finally {
       set({ isUsersLoading: false });
     }
