@@ -87,7 +87,7 @@ const MessageInput = () => {
           type="button"
           onClick={() => fileInputRef.current?.click()}
           className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-slate-700/70 bg-slate-800/80 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-slate-100 ${
-            imagePreview ? "border-cyan-500/70 text-cyan-400" : ""
+            imagePreview ? "border-sky-500/70 text-sky-400" : ""
           }`}
           aria-label="Attach image"
         >
@@ -98,7 +98,7 @@ const MessageInput = () => {
           type="text"
           value={text}
           placeholder="Type your message..."
-          className="h-11 flex-1 rounded-full border border-slate-700/70 bg-slate-900/60 px-4 text-slate-100 placeholder-slate-400 outline-none transition-all duration-200 focus:border-cyan-500/80 focus:ring-2 focus:ring-cyan-500/30"
+          className="h-11 flex-1 rounded-full border border-slate-700/70 bg-slate-900/60 px-4 text-slate-100 placeholder-slate-400 outline-none transition-all duration-200 focus:border-sky-500/80 focus:ring-2 focus:ring-sky-500/30"
           onChange={(e) => {
             setText(e.target.value);
             if (isSoundEnabled) {
@@ -118,7 +118,7 @@ const MessageInput = () => {
         <button
           type="submit"
           disabled={(!text.trim() && !imagePreview) || isSending}
-          className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-cyan-500 text-white transition-all hover:bg-cyan-600 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400"
+          className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-sky-500 text-white transition-all hover:bg-sky-600 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400"
         >
           <SendIcon className="w-5 h-5" />
         </button>

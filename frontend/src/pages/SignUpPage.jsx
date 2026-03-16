@@ -121,7 +121,7 @@ const SignUpPage = () => {
                   className="h-auto w-full max-w-[560px] max-h-[min(56vh,460px)] object-contain"
                 />
                 <div className="mt-6 text-center">
-                  <h3 className="text-xl font-medium text-cyan-400">Start Your Journey Today</h3>
+                  <h3 className="text-xl font-medium text-sky-400">Start Your Journey Today</h3>
 
                   <div className="mt-4 flex justify-center gap-4">
                     <span className="auth-badge">Free</span>

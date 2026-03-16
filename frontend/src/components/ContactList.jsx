@@ -23,7 +23,7 @@ const ContactList = () => {
           key={contact._id}
           className={`mb-1 cursor-pointer rounded-xl p-3 transition-colors ${
             selectedUser?._id === contact._id
-              ? "bg-cyan-500/15 border border-cyan-500/30"
+              ? "bg-sky-500/15 border border-sky-500/30"
               : "border border-transparent hover:bg-slate-700/40"
           }`}
           onClick={() => setSelectedUser(contact)}
