@@ -29,7 +29,7 @@ const ChatHeader = () => {
           <h3 className="text-slate-100 font-medium leading-tight">
             {selectedUser.fullName}
           </h3>
-          <p className="text-xs text-slate-400">online</p>
+          <p className="text-xs text-sky-300/90">online</p>
         </div>
       </div>
       <button

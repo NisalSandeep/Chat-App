@@ -22,7 +22,7 @@ const ChatContainer = () => {
   return (
     <>
       <ChatHeader />
-      <div className="flex-1 overflow-y-auto bg-[radial-gradient(circle_at_1px_1px,rgba(148,163,184,0.08)_1px,transparent_0)] bg-[size:20px_20px] px-3 py-4 md:px-6">
+      <div className="flex-1 overflow-y-auto bg-[radial-gradient(circle_at_1px_1px,rgba(56,189,248,0.12)_1px,transparent_0)] bg-[size:20px_20px] px-3 py-4 md:px-6">
         {messages.length > 0 && !isMessagesLoading ? (
           <div className="mx-auto flex w-full max-w-4xl flex-col gap-2">
             {messages.map((msg) => {
@@ -34,7 +34,7 @@ const ChatContainer = () => {
                   <div
                     className={`chat-bubble relative ${
                       msg.senderId === authUser._id
-                        ? "rounded-2xl rounded-br-md border border-cyan-400/30 bg-cyan-600/90 text-white"
+                        ? "rounded-2xl rounded-br-md border border-sky-400/30 bg-sky-600/90 text-white"
                         : "rounded-2xl rounded-bl-md border border-slate-600/60 bg-slate-800/95 text-slate-100"
                     }`}
                     style={{ maxWidth: "min(80%, 520px)" }}
