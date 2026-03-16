@@ -2,10 +2,9 @@ import React from 'react'
 import { useEffect } from "react";
 import  useChatStore  from "../store/useChatStore";
 import UsersLoadingSkeleton from "./UsersLoadingSkeleton";
-import { useAuthStore } from "../store/useAuthStore";
 
 const ContactList = () => {
-  const { getAllContacts,allContacts, isUsersLoading, setSelectedUser } = useChatStore();
+  const { getAllContacts,allContacts, isUsersLoading, setSelectedUser, selectedUser } = useChatStore();
 
   useEffect(() => {
     getAllContacts();
@@ -22,7 +21,11 @@ const ContactList = () => {
       {allContacts.map((contact) => (
         <div
           key={contact._id}
-          className="bg-cyan-500/10 p-4 rounded-lg cursor-pointer hover:bg-cyan-500/20 transition-colors"
+          className={`mb-1 cursor-pointer rounded-xl p-3 transition-colors ${
+            selectedUser?._id === contact._id
+              ? "bg-cyan-500/15 border border-cyan-500/30"
+              : "border border-transparent hover:bg-slate-700/40"
+          }`}
           onClick={() => setSelectedUser(contact)}
         >
           <div className="flex items-center gap-3">
@@ -31,7 +34,10 @@ const ContactList = () => {
                 <img src={contact.profilePic || "/avatar.png"} />
               </div>
             </div>
-            <h4 className="text-slate-200 font-medium">{contact.fullName}</h4>
+            <div className="min-w-0 flex-1">
+              <h4 className="truncate text-sm font-medium text-slate-100">{contact.fullName}</h4>
+              <p className="truncate text-xs text-slate-400">Start a new chat</p>
+            </div>
           </div>
         </div>
       ))}
