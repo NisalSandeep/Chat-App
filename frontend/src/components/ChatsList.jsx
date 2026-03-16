@@ -4,7 +4,7 @@ import NoChatsFound from "./NoChatsFound";
 import useChatStore from "../store/useChatStore";
 
 const ChatsList = () => {
-  const { getMyChatPartners, chats, isUsersLoading, setSelectedUser } = useChatStore();
+  const { getMyChatPartners, chats, isUsersLoading, setSelectedUser, selectedUser } = useChatStore();
 
   useEffect(() => {
     getMyChatPartners();
@@ -27,7 +27,11 @@ const ChatsList = () => {
       {chats.map((chat) => (
         <div
           key={chat._id}
-          className="bg-cyan-500/10 p-4 rounded-lg cursor-pointer hover:bg-cyan-500/20 transition-colors"
+          className={`mb-1 cursor-pointer rounded-xl p-3 transition-colors ${
+            selectedUser?._id === chat._id
+              ? "bg-cyan-500/15 border border-cyan-500/30"
+              : "border border-transparent hover:bg-slate-700/40"
+          }`}
           onClick={() => setSelectedUser(chat)}
         >
           <div className="flex items-center gap-3">
@@ -36,7 +40,10 @@ const ChatsList = () => {
                 <img src={chat.profilePic || "/avatar.png"} alt={chat.fullName} />
               </div>
             </div>
-            <h4 className="text-slate-200 font-medium truncate">{chat.fullName}</h4>
+            <div className="min-w-0 flex-1">
+              <h4 className="truncate text-sm font-medium text-slate-100">{chat.fullName}</h4>
+              <p className="truncate text-xs text-slate-400">Tap to open conversation</p>
+            </div>
           </div>
         </div>
       ))}

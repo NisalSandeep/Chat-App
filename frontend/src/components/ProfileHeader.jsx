@@ -29,7 +29,7 @@ const ProfileHeader = () => {
   };
 
   return (
-    <div className="p-6 border-b border-slate-700/50">
+    <div className="px-4 py-3 border-b border-slate-700/50 bg-slate-800/70">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {/* AVATAR */} {isUpdatingProfile && <div className="absolute inset-0 bg-black/50 flex items-center justify-center"><span className="text-white text-xs">Updating...</span></div>}
@@ -66,14 +66,14 @@ const ProfileHeader = () => {
         </div>
 
         {/* BUTTONS */}
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-1 items-center">
           {/* LOGOUT BTN */}
-          <button className="text-slate-400 hover:text-salte-200 transition-colors" onClick={logout}>
+          <button className="rounded-full p-2 text-slate-400 hover:bg-slate-700/60 hover:text-slate-200 transition-colors" onClick={logout}>
             <LogOutIcon className="size-5 " />
           </button>
           {/* SOUND TOGGLE BTN */}
           <button
-            className="text-slate-400 hover:text-slate-200 transition-colors"
+            className="rounded-full p-2 text-slate-400 hover:bg-slate-700/60 hover:text-slate-200 transition-colors"
             onClick={() => {
               // play click sound before toggling
               mouseClickSound.currentTime = 0; // reset to start
