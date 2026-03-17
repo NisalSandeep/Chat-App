@@ -19,7 +19,7 @@ const ChatPage = () => {
         <div
           className={`${
             selectedUser ? "hidden md:flex" : "flex"
-          } w-full md:w-[360px] md:min-w-[320px] md:max-w-[420px] bg-slate-800/60 backdrop-blur-sm flex-col border-b border-slate-700/50 md:border-b-0 md:border-r md:border-slate-700/50`}
+          } glass-surface w-full md:w-[360px] md:min-w-[320px] md:max-w-[420px] flex-col border-b md:border-b-0 md:border-r`}
         >
           <ProfileHeader />
           <ActiveTabSwitch />
@@ -32,7 +32,7 @@ const ChatPage = () => {
         <div
           className={`${
             selectedUser ? "flex" : "hidden md:flex"
-          } flex-1 flex-col bg-slate-900/50 backdrop-blur-sm min-w-0`}
+          } glass-surface min-w-0 flex-1 flex-col`}
         >
           {selectedUser ? <ChatContainer />: <NoConversationPlaceHolder />}
         </div>

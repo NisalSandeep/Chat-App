@@ -26,12 +26,12 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="h-dvh w-full bg-slate-900">
+    <div className="h-dvh w-full">
       <div className="relative h-full w-full">
         <BoraderAnimatedContainer>
           <div className="flex h-full w-full flex-col md:flex-row">
             {/* FORM CLOUMN - LEFT SIDE */}
-            <div className="flex w-full items-center justify-center overflow-y-auto px-5 py-8 md:w-1/2 md:border-r border-slate-600/30 md:px-8">
+            <div className="glass-surface flex w-full items-center justify-center overflow-y-auto px-5 py-8 md:w-1/2 md:border-r md:px-8">
               <div className="w-full max-w-md">
                 <div className="text-center mb-8">
                   <MessageCircleIcon className="w-12 h-12 mx-auto text-slate-400 mb-4" />
@@ -113,8 +113,8 @@ const SignUpPage = () => {
               </div>
             </div>
             {/* FORM CLOUMN - RIGHT SIDE */}
-            <div className="hidden md:flex md:w-1/2 items-center justify-center overflow-hidden bg-gradient-to-bl from-slate-800/20 to-transparent p-6 lg:p-10">
-              <div className="flex h-full w-full max-w-2xl flex-col items-center justify-center rounded-2xl border border-slate-700/40 bg-slate-900/25 p-6 lg:p-8">
+            <div className="hidden md:flex md:w-1/2 items-center justify-center overflow-hidden bg-gradient-to-bl from-slate-900/25 to-transparent p-6 lg:p-10">
+              <div className="glass-surface flex h-full w-full max-w-2xl flex-col items-center justify-center rounded-2xl p-6 lg:p-8">
                 <img
                   src="/signup.png"
                   alt="People using mobile devices"
