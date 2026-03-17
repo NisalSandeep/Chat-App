@@ -93,10 +93,11 @@ const useChatStore = create((set, get) => ({
   },
 
   subscribeToNewMessages: () => {
-    const { selectedUser, messages, isSoundEnabled } = get();
-    if(!selectedUser) return;
+    const { selectedUser, isSoundEnabled } = get();
+    if (!selectedUser) return;
 
     const socket = useAuthStore.getState().socket;
+    if (!socket) return;
 
     socket.on("newMessage", (newMessage) => {
       const isMessageSentFromSelectedUser = newMessage.senderId === selectedUser._id;
@@ -116,6 +117,7 @@ const useChatStore = create((set, get) => ({
 
   unsubscribeFromNewMessages: () => {
     const socket = useAuthStore.getState().socket;
+    if (!socket) return;
     socket.off("newMessage");
   }
 
