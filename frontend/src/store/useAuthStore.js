@@ -25,6 +25,7 @@ export const useAuthStore = create((set, get) => ({
       if (error.response?.status !== 401) {
         console.log("Error in authCheck: ", error);
       }
+      get().disconnectSocket();
       set({ authUser: null });
     } finally {
       set({ isCheckingAuth: false });
@@ -39,6 +40,7 @@ export const useAuthStore = create((set, get) => ({
 
       toast.success("Logged in successfully");
 
+      get().disconnectSocket();
       get().connectSocket();
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
@@ -54,6 +56,7 @@ export const useAuthStore = create((set, get) => ({
       set({ authUser: res.data });
 
       toast.success("Account created successfully");
+      get().connectSocket();
     } catch (error) {
       toast.error(error.response?.data?.message || "Signup failed");
     } finally {
@@ -64,13 +67,14 @@ export const useAuthStore = create((set, get) => ({
   logout: async () => {
     try {
       await axiosInstance.post("/auth/logout");
-      set({ authUser: null });
+      set({ authUser: null, onlineusers: [] });
 
       toast.success("Logout successfully");
-      get().disconnectSocket();
 
     } catch (error) {
       toast.error("Failed to logout");
+    } finally {
+      get().disconnectSocket();
     }
   },
 
@@ -105,9 +109,31 @@ export const useAuthStore = create((set, get) => ({
     socket.on("getOnlineUsers", (userIds) => {
       set({ onlineusers: userIds });
     });
+
+    socket.on("disconnect", () => {
+      set({ socket: null, onlineusers: [] });
+    });
+
+    // Force a graceful close on tab close/reload to reduce stale presence.
+    const handleBeforeUnload = () => {
+      if (socket.connected) {
+        socket.disconnect();
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    socket.on("disconnect", () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    });
   },
 
   disconnectSocket: () => {
-    if (get().socket?.connected) get().socket.disconnect();
+    const socket = get().socket;
+    if (socket) {
+      socket.off("getOnlineUsers");
+      socket.disconnect();
+    }
+    set({ socket: null, onlineusers: [] });
   },
 }));

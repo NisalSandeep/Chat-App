@@ -12,6 +12,9 @@ const io = new Server(server, {
     origin: [ENV.CLIENT_URL],
     credentials: true,
   },
+  // Reduce stale-online window when users close tabs or lose connectivity.
+  pingInterval: 10000,
+  pingTimeout: 7000,
 }); // on top of the express server we use socket.io
 
 //apply authencation middleware
