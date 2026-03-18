@@ -106,13 +106,16 @@ const LoginPage = () => {
                   alt="People using mobile devices"
                   className="h-auto w-full max-w-[560px] max-h-[min(56vh,460px)] object-contain"
                 />
-                <div className="mt-6 text-center">
-                  <h3 className="text-xl font-medium text-sky-400">Connect with Friends</h3>
+                <div className="mt-8 text-center space-y-4">
+                  <div>
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">Welcome Back</h3>
+                    <p className="text-slate-400 text-sm mt-2">Your conversations await</p>
+                  </div>
 
-                  <div className="mt-4 flex justify-center gap-4">
-                    <span className="auth-badge">Free</span>
-                    <span className="auth-badge">Easy Setup</span>
-                    <span className="auth-badge">Private</span>
+                  <div className="mt-6 flex justify-center gap-3 flex-wrap">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 border border-emerald-400/50 text-emerald-300 text-sm font-medium hover:border-emerald-300 transition-colors">Real-time Chat</span>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-teal-500/20 to-teal-600/20 border border-teal-400/50 text-teal-300 text-sm font-medium hover:border-teal-300 transition-colors">Friends First</span>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 border border-cyan-400/50 text-cyan-300 text-sm font-medium hover:border-cyan-300 transition-colors">24/7 Online</span>
                   </div>
                 </div>
               </div>

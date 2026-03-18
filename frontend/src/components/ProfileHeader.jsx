@@ -33,18 +33,29 @@ const ProfileHeader = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {/* AVATAR */} {isUpdatingProfile && <div className="absolute inset-0 bg-black/50 flex items-center justify-center"><span className="text-white text-xs">Updating...</span></div>}
-          <div className="avater online">
+          <div className="avater online relative">
             <button
-              className="size-14 rounded-full overflow-hidden relative group"
+              className="size-14 rounded-full overflow-hidden relative group cursor-pointer"
               onClick={() => fileInputRef.current.click()}
             >
+              {/* Animated gradient border */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+              
+              {/* Inner glow on hover */}
+              <div className="absolute inset-0.5 rounded-full bg-slate-800 group-hover:shadow-lg group-hover:shadow-purple-500/50 transition-all duration-300"></div>
+              
               <img
                 src={selectedImg || authUser.profilePic || "/avatar.png"}
                 alt="user image"
-                className="size-full object-cover"
+                className="size-full object-cover relative z-10 group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                <span className="text-white text-xs">Change</span>
+              
+              {/* Creative overlay with icons */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center gap-2 transition-all duration-300 z-20">
+                <svg className="w-5 h-5 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                <span className="text-white font-semibold text-sm">Edit</span>
               </div>
             </button>
             <input

@@ -120,13 +120,16 @@ const SignUpPage = () => {
                   alt="People using mobile devices"
                   className="h-auto w-full max-w-[560px] max-h-[min(56vh,460px)] object-contain"
                 />
-                <div className="mt-6 text-center">
-                  <h3 className="text-xl font-medium text-sky-400">Start Your Journey Today</h3>
+                <div className="mt-8 text-center space-y-4">
+                  <div>
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Begin Your Journey</h3>
+                    <p className="text-slate-400 text-sm mt-2">Join thousands connecting instantly</p>
+                  </div>
 
-                  <div className="mt-4 flex justify-center gap-4">
-                    <span className="auth-badge">Free</span>
-                    <span className="auth-badge">Easy Setup</span>
-                    <span className="auth-badge">Private</span>
+                  <div className="mt-6 flex justify-center gap-3 flex-wrap">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-600/20 border border-blue-400/50 text-blue-300 text-sm font-medium hover:border-blue-300 transition-colors">Zero Limits</span>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-purple-600/20 border border-purple-400/50 text-purple-300 text-sm font-medium hover:border-purple-300 transition-colors">1min Setup</span>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-pink-500/20 to-pink-600/20 border border-pink-400/50 text-pink-300 text-sm font-medium hover:border-pink-300 transition-colors">Secure</span>
                   </div>
                 </div>
               </div>
