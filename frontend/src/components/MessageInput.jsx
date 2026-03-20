@@ -62,7 +62,7 @@ const MessageInput = () => {
   };
 
   return (
-    <div className="border-t border-slate-700/50 bg-slate-800/70 px-3 py-3 md:px-4 backdrop-blur-sm">
+    <div className="border-t border-slate-700/50 bg-slate-800/70 px-2 py-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] md:px-4 md:py-3 backdrop-blur-sm">
       {imagePreview && (
         <div className="mx-auto mb-3 flex w-full max-w-4xl items-center">
           <div className="relative rounded-xl border border-slate-700/60 bg-slate-800/50 p-1">
@@ -82,11 +82,11 @@ const MessageInput = () => {
         </div>
       )}
 
-      <form onSubmit={handleSendMessage} className="mx-auto flex w-full max-w-4xl items-center gap-2">
+      <form onSubmit={handleSendMessage} className="mx-auto flex w-full max-w-4xl items-center gap-1.5 md:gap-2">
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-slate-700/70 bg-slate-800/80 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-slate-100 ${
+          className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-slate-700/70 bg-slate-800/80 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-slate-100 md:h-11 md:w-11 ${
             imagePreview ? "border-sky-500/70 text-sky-400" : ""
           }`}
           aria-label="Attach image"
@@ -98,7 +98,7 @@ const MessageInput = () => {
           type="text"
           value={text}
           placeholder="Type your message..."
-          className="h-11 flex-1 rounded-full border border-slate-700/70 bg-slate-900/60 px-4 text-slate-100 placeholder-slate-400 outline-none transition-all duration-200 focus:border-sky-500/80 focus:ring-2 focus:ring-sky-500/30"
+          className="h-10 flex-1 rounded-full border border-slate-700/70 bg-slate-900/60 px-3 text-sm text-slate-100 placeholder-slate-400 outline-none transition-all duration-200 focus:border-sky-500/80 focus:ring-2 focus:ring-sky-500/30 md:h-11 md:px-4 md:text-base"
           onChange={(e) => {
             setText(e.target.value);
             if (isSoundEnabled) {
@@ -118,7 +118,7 @@ const MessageInput = () => {
         <button
           type="submit"
           disabled={(!text.trim() && !imagePreview) || isSending}
-          className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-sky-500 text-white transition-all hover:bg-sky-600 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400"
+          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-sky-500 text-white transition-all hover:bg-sky-600 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400 md:h-11 md:w-11"
         >
           <SendIcon className="w-5 h-5" />
         </button>

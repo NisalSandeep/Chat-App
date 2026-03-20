@@ -21,15 +21,15 @@ const ChatHeader = () => {
   }, [setSelectedUser]);
 
   return (
-    <div className="flex h-[72px] flex-shrink-0 items-center justify-between border-b border-slate-700/50 bg-slate-800/70 px-4 md:px-5">
-      <div className="flex items-center space-x-3">
+    <div className="flex h-16 flex-shrink-0 items-center justify-between border-b border-slate-700/50 bg-slate-800/70 px-3 md:h-[72px] md:px-5">
+      <div className="min-w-0 flex items-center gap-3">
         <div className={`avatar ${isOnline ? "online" : "offline"}`}>
-          <div className="w-10 rounded-full md:w-11">
+          <div className="w-9 rounded-full md:w-11">
             <img src={selectedUser.profilePic || "/avatar.png"} alt="profile" />
           </div>
         </div>
-        <div>
-          <h3 className="text-slate-100 font-medium leading-tight">
+        <div className="min-w-0">
+          <h3 className="truncate text-sm font-medium leading-tight text-slate-100 md:text-base">
             {selectedUser.fullName}
           </h3>
           <p className="text-xs text-sky-300/90">{isOnline ? "Online":  "Offline"}</p>
@@ -37,7 +37,7 @@ const ChatHeader = () => {
       </div>
       <button
         onClick={() => setSelectedUser(null)}
-        className="rounded-full p-2 text-slate-400 transition-colors hover:bg-slate-700/60 hover:text-slate-200"
+        className="ml-2 rounded-full p-2 text-slate-400 transition-colors hover:bg-slate-700/60 hover:text-slate-200"
       >
         <XIcon className="w-5 h-5 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" />
       </button>

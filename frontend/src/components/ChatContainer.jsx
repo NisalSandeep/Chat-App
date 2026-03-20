@@ -5,7 +5,6 @@ import ChatHeader from "./ChatHeader";
 import NoChatHistoryPlaceholder from "./NoChatHistoryPlaceholder";
 import MessageInput from "./MessageInput";
 import MessagesLoadingSkeleton from "./MessagesLoadingSkeleton";
-import { use } from "react";
 
 const ChatContainer = () => {
   const {
@@ -35,9 +34,9 @@ const ChatContainer = () => {
   }, [messages]);
 
   return (
-    <>
+    <div className="flex h-full min-h-0 flex-1 flex-col">
       <ChatHeader />
-      <div className="flex-1 overflow-y-auto bg-[radial-gradient(circle_at_1px_1px,rgba(56,189,248,0.12)_1px,transparent_0)] bg-[size:20px_20px] px-3 py-4 md:px-6">
+      <div className="flex-1 overflow-y-auto bg-[radial-gradient(circle_at_1px_1px,rgba(56,189,248,0.12)_1px,transparent_0)] bg-[size:20px_20px] px-2 py-3 md:px-6 md:py-4">
         {messages.length > 0 && !isMessagesLoading ? (
           <div className="mx-auto flex w-full max-w-4xl flex-col gap-2">
             {messages.map((msg) => {
@@ -83,7 +82,7 @@ const ChatContainer = () => {
         )}
       </div>
       <MessageInput />
-    </>
+    </div>
   );
 };
 
